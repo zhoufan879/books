@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JS 转成 HTML</title>
+		<script type="text/javascript">
+			
+			var s = 'hello,world';
+			console.log( s.anchor("http://github.com/zhoufan879") );			// <a href='#'>zhoufan879</a>
+			
+			console.log( s.big() );
+			
+			console.log( s.bold() );				// <b></b>
+			
+			console.log( s.fixed() );				// <tt></tt>
+			
+			console.log( s.fontcolor('#fff') );		// <font color='#000'></font>
+			
+			console.log( s.sub() );					// <sub></sub>
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			JavaScript 可以动态格式化HTML
+		</p>
+		
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

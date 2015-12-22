@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数据结构</title>
+		<script type="text/javascript">
+		
+			var a = "123456";
+			var b = 123456;
+			var c = true;
+			var d = undefined;			// 更应该把初始值赋值为 undefined （默认项）
+			var e = null;						// 更应该把无用的变量赋值为 null （finally）
+			var f = {};
+			var g = function(){};
+			
+			// typeof 返回字符串
+			console.log(typeof a);		// string
+			console.log(typeof b);		// number
+			console.log(typeof c);		// boolean
+			console.log(typeof d);		// undefined
+			console.log(typeof e);		// object - null 值表示一个空对象指针
+			console.log(typeof f);		// object
+			console.log(typeof g);		// function
+			console.log( 'function' === typeof g);	// 注意返回的 字符串
+			console.log( undefined == null );			// true	- 	undefined 派生自 null
+			console.log( undefined === null );			// false	
+		</script>
+	</head>
+	<body>
+		<p>
+			ECMAScript 数据类型属于松散类型，即没有特定数据类型
+		</p>
+		<p>
+			ECMAScript 定义了5种基本数据类型：
+			<ul>
+				<li>String</li>
+				<li>Number</li>
+				<li>Boolean</li>
+				<li>Undefined</li>
+				<li>Null</li>
+			</ul>
+		</p>
+		<p>
+			ECMAScript 还定义了1种复杂数据类型：
+			<ul>
+				<li>Object</li>
+			</ul>
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

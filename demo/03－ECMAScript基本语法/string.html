@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>String 类型</title>
+		<script type="text/javascript">
+		
+			var str = 'java';
+			str = str + "script";
+			
+			console.log(str);			// javascript: 'java'、'script' 在后台会被消毁，最终只剩下 'javascript'
+			
+			var num = 10;
+			console.log( num.toString() );			// "10"
+			console.log( num.toString(2) );			// 1010	- 2 进制
+			console.log( num.toString(6) );			// 14     - 6 进制
+			console.log( num.toString(8) );			// 12		- 8 进制
+			console.log( num.toString(10) );		// 10		- 10 进制
+			console.log( num.toString(16) );		// a		- 16 进制
+			
+			console.log( String(null) );					// "null"
+			console.log( String(undefined) );		// "undefined"
+			
+			console.log( str.constructor );
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			String 创建的对象是常量，不可变（类似JAVA）。用引号表示，单、双引号都达！ ' && " 
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

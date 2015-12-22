@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数据结构</title>
+		<script type="text/javascript">
+		
+			// 动态属性
+			var obj = new Object();
+			obj.version = "0.0.1";
+			console.log(obj);					// 0.0.1
+			
+			// 复制变量 （ 基础类型 ）
+			var num1 = 5;
+			var num2 = num1;
+			num1 = 10
+			console.log(num1);				// 10
+			console.log(num2);				// 5
+			
+			// 复制变量 （ 引用类型 ）
+			var obj2 = obj;
+			obj.version = "0.0.2";
+			console.log(obj);					// 0.0.2
+			console.log(obj2);					// 0.0.2
+			
+			// 传递参数 - ECMAScript 规定函数参数都是“值传递” （疑问？？？）
+			add1(num1);
+			function add1(num1){
+				num1 = num1 * 2;
+			}
+			console.log(num1);
+			
+			// 传递参数 - ECMAScript 规定函数参数都是“值传递” （疑问？？？）
+			obj.num = 5;
+			add2(obj);
+			function add2(obj){
+				obj.num = obj.num * 2;
+				obj.name = 'zhoufan879';
+			}
+			console.log(obj);
+			
+			// 传递参数 - ECMAScript 规定函数参数都是“值传递” （疑问？？？）
+			add3(obj);
+			function add3(obj){
+				obj.num = obj.num * 2;
+				obj.name = 'zhoufan879';
+				
+				obj = new Object();				// 一当重写对象，JS就会转换成 局部变量
+				obj.name = 'glinda';				// 为毛不能赋值？
+			}
+			console.log(obj);
+			
+			// 作用域
+			function deep1(){
+				var num1 = 100
+				console.log(this);
+				function deep2 () {
+					console.log(this);
+					function deep3 () {
+						console.log(this);
+						function deep4 () {
+							console.log(num1);			// 100
+						}
+						deep4();
+					}
+					deep3();
+				}
+				deep2();
+			}
+			deep1();
+		
+			// 作用域
+			var scope = {
+				num1: 100,
+				fun1: function () {
+//					var num1 = 200;
+					return {
+						fun2: function(){
+							console.log(num1);		// 10
+						}
+					}
+				}
+			};
+			scope.fun1().fun2();
+			
+			// 没有块级作用域
+			if( true ){
+				var color = 'red';
+			}
+			console.log(color);		// color 并不是局部变量
+			
+			for(var i = 0; i < 10; i++ ){
+				// do something
+			}
+			console.log(i);				// 10
+			
+			// 管理内存
+			var foo;							// undefined
+			foo = "bar";					// evaluate
+			foo = null;						// dereferencing	解除引用 --> GC
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			ECMAScript 定义了5种基本数据类型：
+			<ul>
+				<li>String</li>
+				<li>Number</li>
+				<li>Boolean</li>
+				<li>Undefined</li>
+				<li>Null</li>
+			</ul>
+		</p>
+		<p>
+			ECMAScript 还定义了1种复杂数据类型：
+			<ul>
+				<li>Object</li>
+			</ul>
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

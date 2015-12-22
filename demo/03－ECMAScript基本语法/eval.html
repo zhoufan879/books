@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>eval 方法</title>
+		<script type="text/javascript">
+			
+			eval( "console.log(222)" );				// 解析打印输出
+			
+//			eval( "function sayHi(name){return 'hello,' + name}" );					// 解析函数
+			eval( "var sayHi = function(name){return 'hello,' + name}" );			// 解析函数 && 变量
+			console.log( sayHi('zhoufan') );
+			
+			'use strict';
+			eval( "var i = 1;" );				// 解析打印输出
+			console.log(i);
+			
+			console.log(window);
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			eval() 估计是JAVASCRIPT中最最强大的方法，它可以像ECMAScript 一样解析语法
+		</p>
+		
+		<p>
+			使用 eval() 时，务必要谨慎，因为它的强大很容易被攻击（代码注入）
+		</p>
+		
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

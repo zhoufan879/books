@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Number 类型</title>
+		<script type="text/javascript">
+		
+			console.log(123);  		// 普通整数
+			console.log(070);			// 8进制的56
+			console.log(0xA);			// 16进制的10
+			console.log(1.1);			// float
+			console.log(.1);				// float - 0.1
+			console.log(0.1234567890123456789);		// 0.12345678901234568 最高精确到小数点后 17位
+			console.log(3.125e7);	// 科学计数法 - 3.125 * 10 * 7
+			console.log(Number.MIN_VALUE);			// 5e-324 = 5 x 10 -324 (http://www.runoob.com/jsref/jsref-min-value.html)
+			console.log(5e-324);
+			console.log(Number.MIN_VALUE > 0);		// true - 最接近0的数，但不是负数
+			console.log(Number.MAX_VALUE);			// 1.7976931348623157e+308 哇靠~好大好大
+			
+			console.log(NaN == NaN);		// NaN 不等于任何值
+			console.log(isNaN());					// true - is Not a Number
+			console.log(isNaN(''));				// false - is a Number - Number('') => 0
+			console.log(isNaN(0));				// false - is a Number
+			console.log(isNaN(true));			// false - is a Number - Number(true) => 1
+			
+			// =========================================================
+			
+			console.log( Number("123") );					// 123
+			console.log( Number("Hello world") );		// NaN
+			console.log( Number("") );							// 0
+			console.log( Number("00011") );				// 11
+			console.log( Number(true) );						// 1
+			console.log( Number(false) );					// 0
+			
+			// =========================================================
+			
+			console.log( parseInt("10", 2) );					// 按二进制解析
+			console.log( parseInt("10", 6) );					// 按六进制解析 
+			console.log( parseInt("10", 8) );					// 按八进制解析
+			console.log( parseInt("10", 10) );				// ...
+			console.log( parseInt("10", 16) );				// ...
+			
+			// =========================================================
+			
+			var num1 = new Number(10);					
+			var num2 = 10;
+			console.log( num1 === num2 );				// false
+			console.log( typeof num1 );						// object
+			console.log( typeof num2 );						// number
+			
+			console.log( Math.random() );					// 随机返回一个 0~1 之间的小数
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Number 应用很广泛
+			<ul>
+				<li>2、6、8、10、16进制换算</li>
+				<li>处理浮点数</li>
+				<li>取值范围</li>
+				<li>NaN</li>
+				<li>数值转换（string/boolean/parseInt/parseFloat）</li>
+			</ul>
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

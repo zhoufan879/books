@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>构造函数模式</title>
+		<script type="text/javascript" id="js">
+			function Person (name, age, job) {
+				this.name = name;
+				this.age = age;
+				this.job = job;
+				this.sayHi = function () {
+					console.log( "helo, " + this.name );
+				}
+			}
+			
+			var p1 = new Person('zhoufan879', 27, 'it');
+			var p2 = new Person('小明', 57, '普通职工');
+			
+			p1.sayHi();		// zhoufan879
+			p2.sayHi();		// 小明
+			
+			console.log( p1.sayHi === p2.sayHi );		// true   ???
+			
+			// ==============================================
+			
+			// 抽离内部函数
+			function Person (name, age, job) {
+				this.name = name;
+				this.age = age;
+				this.job = job;
+				this.sayHi = sayHello;
+			}
+			
+			function sayHello () {
+				console.log( "helo, " + this.name );
+			}
+			
+			var p1 = new Person('zhoufan879', 27, 'it');
+			var p2 = new Person('小明', 57, '普通职工');
+			
+			p1.sayHi();		// zhoufan879
+			p2.sayHi();		// 小明
+			
+			console.log( p1.sayHi === p2.sayHi );		// true
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			构造函数模式，ECMAScript 中的构造函数可用来创建对象。
+		</p>
+		
+		<div style="margin: 10px;border: 1px solid #ccc;">
+			<code id="_code" >
+			</code>
+		</div>
+		
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+		
+		<script>
+			document.getElementById("_code").innerText = document.getElementById("js").innerText;
+		</script>
+	</body>
+</html>

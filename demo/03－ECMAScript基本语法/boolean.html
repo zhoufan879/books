@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Boolean 类型</title>
+		<script type="text/javascript">
+		
+			// if --> Boolean(...) --> true/false
+			console.log(Boolean(  ));					// false
+			console.log(Boolean( null ));				// false
+			console.log(Boolean( undefined ));	// false
+			console.log(Boolean( '' ));					// false
+			console.log(Boolean( 0 ));					// false 
+			console.log(Boolean( NaN ));				// false - Not a Number
+			console.log(Boolean( '1' ));				// true - 非空字符串
+			console.log(Boolean( '-' ));				// true - 非空字符串
+			console.log(Boolean( 1 ));					// true - 非零数字
+			console.log(Boolean( [] ));					// true
+			console.log(Boolean( {} ));					// true
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Boolean 类型经常使用在IF 条件判断中，简洁方便
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

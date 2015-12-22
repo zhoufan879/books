@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Function 函数</title>
+		<script type="text/javascript">
+			
+			console.log(hi());
+			function hi () {
+				return 'hello,world';
+			}
+			
+//			console.log(hi2());          // error: hi2 is not a function
+//			var hi2 = function() {
+//				return 'hello,world';
+//			}
+			
+			// 递归
+			function plus(num) {
+				if(num==0){
+					return num;
+				}
+				return num + plus(num-1);
+			}
+			console.log( plus(10) );
+			
+			function plus(num) {
+				if(num==0){
+					return num;
+				}
+				return num + arguments.callee(num-1);			// arguments.callee 函数本身
+			}
+			console.log( plus(10) );
+			
+			
+			// =================
+			
+			console.dir(hi);
+			console.log(hi.prototype);
+			console.log(hi == hi.prototype);
+			
+			console.dir(plus);
+			
+			console.log( hi.call(this, null) );				// hello world
+			console.log( plus.call(this, 5) );				// 15
+			
+			console.log( hi.apply(this, null) );
+			console.log( plus.apply(this, [5]) );			// apply(), 第二个参数是 array => arguments
+			
+			function sayHi () {
+//				console.log(this);
+				return "hello, " + this.name;
+			}
+			
+			var name = 'zhoufan879';
+			var xiaom = {
+				name : '小明'
+			}; 
+			var xiaof = {
+				name : '小芳'
+			}; 
+			
+			console.log( sayHi() );							// hello, zhoufan879
+			console.log( this.sayHi() );						// hello, zhoufan879
+			console.log( window.sayHi() );				// hello, zhoufan879
+			console.log( sayHi.call(this) );				// hello, zhoufan879
+			console.log( sayHi.call(xiaom) );			// hello, 小明
+			console.log( sayHi.call(xiaof) );				// hello, 小芳
+			
+			console.log( sayHi.bind(this)() );			// bind() 是ECMAScript 提供的新方法，用于绑定实例对象 
+			console.log( sayHi.bind(xiaom)() );			// hello, 小明
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Function 函数 
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

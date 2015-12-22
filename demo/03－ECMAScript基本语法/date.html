@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Date 类型</title>
+		<script type="text/javascript">
+		
+			var date = new Date();
+			console.log(date);
+			
+			console.log(new Date(Date.parse("2015-12-15")));
+			
+			console.log(new Date("2015-12-15"));
+			
+			console.log(new Date(Date.UTC(2015,11,15)));
+			
+			// ECMAScrip5 新添加了 Date.now()
+			date = Date.now();
+			console.log(date);			// 毫秒数
+			
+			// 计算时间戳 
+			var begin = +new Date();
+			
+			setTimeout(function () {
+				var stop = +new Date();
+				console.log('耗时：' + (stop-begin) + 's');
+			}, 2000);
+			
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Date 类型是在Java早期版本中的java.util.date 之上构架的。使用的是 UTC 国际协调时间，即1970年1月1日零时开始算起
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

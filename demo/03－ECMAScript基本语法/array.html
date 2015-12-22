@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Array 类型</title>
+		<script type="text/javascript">
+		
+			var arr = new Array();
+			console.dir(arr);					// length:0  	prototype: pop/push/map/sort/filter/...
+			
+			arr = new Array(5);
+			console.dir(arr);					// length:5
+			
+			arr = new Array("1");				
+			console.dir(arr);					// length:1
+			
+			arr = new Array(3);
+			var len = arr.length;
+			for(var i=0; i<len; i++){
+				arr[arr.length] = i;				
+			}
+			console.dir(arr);					// length:6 --> [undefined, undefined, undefined, 0, 1, 2] 
+			// for(var i=0; i<arr.length; i++){
+			// 	console.log(arr[i]);
+			// }
+
+			arr[99] = 100;
+			console.dir(arr);		// length:100 --> [undefined, undefined, undefined, 0, 1, 2, undefined, ..., 100] 
+
+			console.log(Array.isArray(arr));		// true		IE9+/Firefox4+/Safari5+/Chrome
+
+			console.log(arr.toString());			// ,,,0,1,2,,,,,,,,,,,,....
+			console.log(arr.toLocaleString());		// ,,,0,1,2,,,,,,,,,,,,....
+			console.log(arr.valueOf());				// [3:0, 4:1, 5:2, 99:100]
+			console.log(arr.join());				// ,,,0,1,2,,,,,,,,,,,,....
+
+			// 栈（先进后出），操作
+			arr.push(101);							
+			console.dir(arr);						// length: 101
+
+			console.log(arr.pop());					// 出栈
+			console.dir(arr);						// length: 100
+
+			// 队列，操作
+			arr.push(101);
+			console.log(arr.shift());				// undefined
+			console.dir(arr);						// length: 100
+
+			console.log(arr.unshift(-2, -1));		// insert
+			console.dir(arr);						// length: 102
+
+			arr.pop();								// pop 100
+			arr.pop();								// pop 101
+			console.dir(arr);						// length: 100
+
+			// 排序 SORT
+			arr = [2, 4, 0, 10, 7, 22];
+			arr.sort();								// 默认按【字符串】比较
+			console.log(arr);						// [0, 10, 2, 22, 4, 7]
+
+			var compare = function(v1, v2){
+				if(v1 > v2) return 1;
+				if(v1 < v2) return -1;
+				return 0;
+			}
+			arr.sort(compare);						// 自定义排序
+			console.log(arr);						// [0, 2, 4, 7, 10, 22]
+
+			arr.reverse();							// 反转
+			console.log(arr);						// [22, 10, 7, 4, 2, 0]
+			
+			// =============== 好长的代码 =========================
+
+			var boys = ["frank", "joy"];
+			boys = boys.concat("xiaom");						
+			console.log(boys);											// [frank, joy, xiaom]
+			
+			// 拼接 数组
+			boys = boys.concat(["xiaof", "zhangs"]);			// [frank, joy, xiaom, xiaof, zhangs]
+			console.log(boys);
+			
+			// 截取 数组
+			console.log(boys.slice(1,2));								// [joy]
+			console.log(boys.slice(1));									// [joy, xiaom, xiaof, zhangs]
+			console.log(boys.slice(-1));								// [zhangs]
+			console.log(boys.slice(1,18));							// [frank, joy, xiaom, xiaof, zhangs]
+
+			// 增删改
+			console.log(boys.splice(0,1));							// 删除第一个位置的元素  
+			console.log(boys);											// [joy, xiaom, xiaof, zhangs]
+			console.log(boys.splice(3,0, "lis"));					// 增加第三个位置的元素
+			console.log(boys);											// [joy, xiaom, xiaof, lis, zhangs]
+			console.log(boys.splice(3,1, "wangw"));			// 修改第三个位置的元素
+			console.log(boys);											// [joy, xiaom, wangw, zhangs]
+			console.log(boys.splice(3,1, "annie", "alle"));	// 修改第三个位置的元素
+			console.log(boys);											// [joy, xiaom, annie, alle, zhangs]
+
+			console.log(boys.indexOf("a"));							// -1
+			console.log(boys.indexOf("joy"));						// 0
+			console.log(boys.indexOf("joy", 1));					// -1
+			console.log(boys.indexOf("annie"));					// 3
+			console.log(boys.indexOf("zhangs"));				// 5
+			console.log(boys.lastIndexOf("zhangs"));			// 5
+			
+			// ============================================
+			
+			// ECMAScript 为数组新添了5个遍历方法：
+			// every | some | filter | map | forEach
+			
+			var arr = [1,2,3,4,5,4,3,2,1];
+			
+			// [every] 判断每一个值，判断都为 true，则返回 true； 否则 false
+			var res = arr.every(function (item, index, arr) {
+				console.log(item, index, arr);
+				return item > 1;
+			});
+			console.log(res);		// false
+			
+			// [some] 同 [every] 正好相反，判断中若有一项目为 true，则返回 true
+			res = arr.some(function (item, index, arr) {
+				console.log(item, index, arr);
+				return item > 1;
+			});
+			console.log(res);		// true
+			
+			// [filter] 过滤器
+			res = arr.filter(function (item, index, arr) {
+				console.log(item, index, arr);
+				return item > 1;
+			});
+			console.log(res);		// [2,3,4,5,4,3,2]
+			
+			// [map] 返回计算后的新结果
+			res = arr.map(function (item, index, arr) {
+				console.log(item, index, arr);
+				return item * 2;
+			});
+			console.log(res);		// [2,4,6,8,10,8,6,4,2]
+			
+			// [forEache] 同JQ.each 类似
+			res = arr.forEach(function (item, index, arr) {
+				console.log(item, index, arr);
+			})
+			console.log(res);		// undefined
+			
+			
+			// ============================================
+			
+			// ECMAScript 为数组新添了2个归并方法（类似hadoop）：
+			// reduce | reduceRight
+			
+			arr = [1,2,3,4,5];
+			res = arr.reduce(function (prev, curr, index, arr) {
+				console.log(prev, curr);
+				return prev + curr;
+			});
+			console.log(res);			// 累加结果： 25
+			
+			res = arr.reduceRight(function (prev, curr, index, arr) {
+				console.log(prev, curr);
+				return prev + curr;
+			})
+			console.log(res);			// 累加结果： 25
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Array 也属于引用类型，ECMAScript 中的数组挺实用，内部可以随意存放不同类型数据。不同于C/JAVA。。。
+		</p>
+		
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

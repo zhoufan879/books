@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>attribute && property</title>
+		<script type="text/javascript">
+		
+			var person = {};
+			
+			Object.defineProperty(person, "name", {
+				configurable: true,
+				writable: false,
+				value: "zhoufan879"
+			});
+			
+			console.log(person.name);				 // zhoufan879
+			person.name = "小明";
+			console.log(person.name);				// zhoufan879
+			delete person.name;
+			console.log(person.name);				// undefined
+			
+			// =========================================
+			person = {
+				_job: null,
+				msg: null
+			};
+			Object.defineProperty(person, "job", {
+				get: function () {
+					return this._job;
+				},
+				
+				set: function (newVal) {
+					this._job = newVal;
+					this.msg = newVal=="IT"?'NB':null;
+				}
+			});
+			person.job = "IT";
+			console.log(person);
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			属性类型 && 访问器属性
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

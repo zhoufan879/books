@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>URI 编码</title>
+		<script type="text/javascript">
+			
+			var url = 'http://www.biadu.com/v=1.0.2834stable?search=javascript ecmascript&s=3#index';
+			
+			var encode = encodeURI(url);
+			console.log( encode );				// 只对【空格】编码
+			console.log( decodeURI(encode) );
+			
+			encode = encodeURIComponent(url);
+			console.log( encode );			// 对所有【非字母/数字】编码
+			
+			console.log( decodeURIComponent(encode) );			
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			URI 一般通过 encodeURI() && encodeURIComponent()
+		</p>
+		
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

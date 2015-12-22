@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>正则表示式</title>
+		<script type="text/javascript">
+		
+			console.log( /o/.test( "hello world") );			// true
+			console.log( /a/g.test( "hello world") );			// false	- g - 全局
+			console.log( /D/.test( "hello world") );			// false
+			console.log( /D/i.test( "hello world") );			// true	-  i - 不区分大小写
+//			console.log( /a/m.test("123\r\nabc"));			// ???   - m - 多行
+
+			var reg = /[abc]d/gim;
+			console.log(reg.global);
+			console.log(reg.ignoreCase);
+			console.log(reg.multiline);
+			console.log(reg.lastIndex);
+			console.log(reg.source);
+
+			var res = reg.exec("helloworld abcd ad bd cd");
+			console.log(res);
+			
+			res = /[a-z]d/i.exec("helloworld abcd ad bd cd");
+			console.log(res);
+			
+			res = /.at/gi.exec("cat, bat, sat, fat");
+			console.log(res);
+			console.log(RegExp.input);
+			console.log(RegExp.leftContext);
+			console.log(RegExp.rightContext);
+			
+			res = /(.*,)|(.)/g.exec("cat, bat, sat, fat");
+			console.log(RegExp.$1);
+			console.log(RegExp.$2);
+			console.log(RegExp.$3);
+			console.log(RegExp.$4);
+
+		</script>
+	</head>
+	<body>
+		<p>
+			正则表达式，ECMAScript 通过 RegExp类型支持正则
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

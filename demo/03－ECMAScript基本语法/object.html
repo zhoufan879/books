@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Object 类型</title>
+		<script type="text/javascript">
+		
+			var obj = {};
+			console.log( obj.constructor );
+			
+			console.log( null == undefined );				// true
+			console.log( null === undefined );				// false
+			
+			console.log( true == 1 );							// true
+			console.log( true === 1 );							// false
+			console.log( false == 0 );							// true
+			console.log( false === 0 );							// false
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Object 复杂数据类型，由一组数据和功能集合 
+		</p>
+		<p>
+			Object 是所有类型的基础（类似JAVA），所有对象都继承它，拥有objet 的所有属性与方法
+			<ul>
+				<li>hasOwnProperty(propertyName)</li>
+				<li>isPropertyOf(object)</li>
+				<li>propertyInEnumerable(propertyName)</li>
+				<li>toLocalString()</li>
+				<li>toString()</li>
+				<li>valueOf()</li>
+			</ul>
+		</p>
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+	</body>
+</html>

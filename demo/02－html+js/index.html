@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>script 属性</title>
+		
+		<!-- 注意： defer & async 属性  -->
+		<script src="../../js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			alert(1);
+			
+			document.addEventListener("DOMContentLoaded", function(){
+				alert(3);
+			});
+			
+			window.onload = function () {
+				alert(4);
+			};
+			
+			$(document).ready(function(){
+				alert(2);
+			});
+		</script>
+	</head>
+	<body>
+		<h2>&lt;script&gt;属性</h2>
+		<ul>
+			<li><h5>async</h5>异步加载，指立即执行下载，但不能妨碍其它资源加载，只对外部文件有效</li>
+			<li><h5>defer</h5> - 延迟加载，指在dom完全被解析和显示之后再执行，只对外部文件有效</li>
+			<li><h5>charset</h5> - 设置字符集，在多数浏览器已忽略此属性</li>
+			<li><h5>type</h5> - 内容类型，默认为text/javascript；很多第三方js库喜欢通过它来实现内部封装模板，如angular、react、riot等</li>
+		</ul>
+		<p>
+			async 与 defer 的区别： 
+			两者几乎是一模一样的，唯一区别就是<b>若有多个 async标记的script 不保证按顺序加载</b>
+		</p>
+	</body>
+</html>

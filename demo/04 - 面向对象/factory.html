@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Factory 工厂模式</title>
+		<script type="text/javascript" id="js">
+			function createPerson (name, age, job) {
+				var person = new Object();
+				person.name = name;
+				person.age = age;
+				person.job = job;
+				
+				person.sayHi = function () {
+					console.log("hello, " + person.name);
+				}
+				
+				return person;
+			}
+			
+			var p1 = createPerson("zhoufan879", 27, "ITer");
+			var p2 = createPerson("小明", 57, "普通职工");
+			
+			p1.sayHi();		// zhoufan879
+			p2.sayHi();		// 小明
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Factory 工厂模式
+		</p>
+		
+		<div style="margin: 10px;border: 1px solid #ccc;">
+			<code id="_code" >
+			</code>
+		</div>
+		
+		<p style="color: rgb(201, 54, 31);">
+			* <small>请查看控制台 （win - F12 / mac - opt+com+i）</small>
+		</p>
+		
+		<script>
+			document.getElementById("_code").innerText = document.getElementById("js").innerText;
+		</script>
+	</body>
+</html>
