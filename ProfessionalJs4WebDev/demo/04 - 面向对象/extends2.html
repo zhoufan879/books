@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>继承</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+
+			// 原型优点：实现属性、方法共享
+			// 同时也是它的缺点
+			function SuperClass () {
+				this.color = ["red", "green"];
+			}
+			
+			function SubClass () {
+			}
+			SubClass.prototype = new SuperClass();
+			
+			var c1 = new SubClass();
+			c1.color.push("blue");
+			console.log(c1.color);			// ["red", "green", "blue"]
+			
+			var c2 = new SubClass();
+			console.log(c2.color);			// ["red", "green", "blue"]  数据共享，但实际中并不是我想要的
+			
+			
+			// =================================
+			
+			// 为了解决这个问题
+			// 聪明的开发人员开始使用一种新技术 【借用构造函数】
+			
+			(function () {
+				
+				function SuperClass () {
+					this.color = ["red", "green"];
+				}
+				function SubClass () {
+					SuperClass.call(this);
+				}
+
+				var c1 = new SubClass();
+				c1.color.push("blue");
+				console.log(c1.color);			// ["red", "green", "blue"]
+				
+				var c2 = new SubClass();
+				console.log(c2.color);			// ["red", "green"]
+				
+			})();
+			
+			// 这种函数的缺点是，无法避免构造函数模式存在的问题--方法都在构造函数中定义，
+			// 因此，函数复用就无从谈起。
+			
+		</script>
+	</head>
+	<body>
+		<h1>
+			继承
+		</h1>
+		
+		<p>
+			OO语言中，有两种实现继承的方式：【接口继承】与【实现继承】。
+			ECMAScript 只支持【实现继承】，主要依靠原型链实现。
+		</p>
+		
+		<h2>
+			原型链
+		</h2>
+		<p>
+			原型链的基本思想是，利用原型让一个引用类型继承另一个引用类型的属性和方法。
+		</p>
+		
+	</body>
+</html>

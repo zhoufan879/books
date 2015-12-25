@@ -60,6 +60,49 @@
 			// 寄生构造函数模式
 			(function () {
 				
+				function Person (name, age, job) {
+					var obj = new Object();
+					obj.name = name;
+					obj.age = age;
+					obj.job = job;
+					obj.sayHi = function () {
+						console.log( "hello, " +this.name );
+					}
+					return obj;
+				}
+				
+				var p1 = new Person("zhoufan879", 27, "IT");
+				p1.sayHi();
+				
+				function SpecialArray () {
+					var values = new Array();
+					values.push.apply(values, arguments);
+					
+					values.toSplitString = function () {
+						return values.join('|');
+					}
+					
+					return values;
+				}
+				
+				var arr = new SpecialArray("blur", "green", "red");
+				console.log(arr.toSplitString());
+				
+			})();
+			
+			// 稳妥构造函数模式
+			// 没有公共属性，没有this 和 new
+			(function () {
+				function Person (name) {
+					var obj = new Object();
+					obj.sayHi = function () {
+						console.log( "hello, " + name );
+					}
+					return obj;
+				}
+				
+				var p1 = Person("zhoufan879");
+				p1.sayHi();
 			})();
 			
 		</script>

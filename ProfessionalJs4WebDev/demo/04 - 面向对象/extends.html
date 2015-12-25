@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>继承</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+			
+			function SuperClass () {
+				this.flag = true;
+			}
+			
+			SuperClass.prototype.getFlag = function () {
+				return this.flag;
+			}
+			
+			function SubClass () {
+				this.flag = false;
+			}
+			SubClass.prototype = new SuperClass();
+			SubClass.prototype.getSubFlag = function () {
+				return this.flag;
+			}
+			
+			var c = new SubClass();
+			console.log( c.getFlag() );				// false
+			console.log( c.getSubFlag() );		// false
+			
+			console.log( c );
+			console.log( c.flag );						// false
+			console.dir( c.constructor );			// Super Class
+			console.dir( SubClass );
+			console.dir( SuperClass );
+			console.log( SubClass.prototype.flag );			// true
+			
+			console.log( c instanceof Object );				// true
+			console.log( c instanceof SuperClass );		// true
+			console.log( c instanceof SubClass );			// true
+			
+			// 原型链的派生
+			console.log( Object.prototype.isPrototypeOf(c) );					// true
+			console.log( SuperClass.prototype.isPrototypeOf(c) );			// true
+			console.log( SubClass.prototype.isPrototypeOf(c) );				// true
+			
+			// 如果用字面量添加新属性或方法，会导致之前的 *.prototype 赋值失效 
+			SubClass.prototype = {
+				otherFun: function () {
+				},
+				getSubFlag: function () {
+					return this.flag;
+				}
+			}
+			
+			// 酱紫，就没 SuperClass 什么事了 ( ͡° ͜ʖ ͡°)
+			console.dir( SubClass );
+			
+		</script>
+	</head>
+	<body>
+		<h1>
+			继承
+		</h1>
+		
+		<p>
+			OO语言中，有两种实现继承的方式：【接口继承】与【实现继承】。
+			ECMAScript 只支持【实现继承】，主要依靠原型链实现。
+		</p>
+		
+		<h2>
+			原型链
+		</h2>
+		<p>
+			原型链的基本思想是，利用原型让一个引用类型继承另一个引用类型的属性和方法。
+		</p>
+		
+	</body>
+</html>
