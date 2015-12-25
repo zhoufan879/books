@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Prototype 原型模式</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+			
+			// 组合使用 原型模式+构造模式 （推荐）
+			// 此模式应该最为 广泛
+			function Person (name, age, job) {
+				this.name = name;
+				this.age = age;
+				this.job = job;
+			}
+			
+			Person.prototype = {
+				constructor: Person,
+				sayHi: function () {
+					console.log( "hello, " + this.name);
+				}
+			}
+			
+			var p1 = new Person("zhoufan879", 27, "IT");
+			var p2 = new Person("小明", 57, "普通职员");
+			
+			p1.sayHi();
+			p2.sayHi();
+			
+			console.log(p1.sayHi === p2.sayHi);				// true
+			
+			// ================================
+			
+			// 动态模式
+			(function () {
+				function Person (name, age, job) {
+					this.name = name;
+					this.age = age;
+					this.job = job;
+					
+					// 仅执行一次
+					if( typeof this.sayHi != "function" ){
+						Person.prototype.sayHi = function () {
+							console.log( "hello, " + this.name );
+						}
+					}
+				}
+				
+				var p1 = new Person("zhoufan879", 27, "IT");
+				var p2 = new Person("小明", 57, "民工");
+				
+				p1.sayHi();
+				p2.sayHi();
+				
+				console.log( p1.sayHi === p2.sayHi );			// true
+			})();
+			
+			// ================================
+			
+			// 寄生构造函数模式
+			(function () {
+				
+			})();
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Prototype 原型模式
+		</p>
+		
+		<p>
+			我们创建的每个函数都有一个 prototype 属性。
+			这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
+			通俗港，prototype是通过调用构造函数而创建的实例对象。
+		</p>
+		
+		<p>
+			原型的好处：
+			可以让所有对象实例共享它所包含的属性和方法，类似于继承（子类可使用父类的属性和方法）。
+			同时，非常灵活，可以直接在原型上添加属性和方法。
+		</p>
+		
+	</body>
+</html>

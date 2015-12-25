@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Prototype 原型模式</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+			
+			function Person () {}
+			
+			Person.prototype.name = "zhoufan879";
+			Person.prototype.age = 27;
+			Person.prototype.job = "IT";
+			Person.prototype.sayHi = function () {
+				console.log( "Hello, " + this.name );
+			}
+			console.dir( Person );
+			var p1 = new Person();
+			var p2 = new Person();
+			p2.name = "小明";			// p2.name 是添加属性(小明)，不影响原型(zhoufan879)
+			
+			p1.sayHi();		// zhoufan879
+			p2.sayHi();		// 小明
+	
+			console.log( p2.name);				// 小明
+			console.log( p2.constructor.prototype.name );				// zhoufan879
+			console.log( p1.sayHi === p2.sayHi );		// true
+			console.log( Person.prototype.constructor === Person );			// true
+			console.dir( Person );
+			
+			// hasOwnProperty 检测属性是否挂载在实例上，是则返回 true
+			console.log(p1.hasOwnProperty('name') );			// false；name属性在原型上
+			console.log(p2.hasOwnProperty('name') );			// true； name属性在实例上
+			
+			// in 关键字，另一种用法，检测属性是否可以访问，无论是实例上的属性还原型上的属性
+			console.log( "name" in p1 );			// true
+			console.log( "name" in p2 );			// true
+
+
+			// ================================
+			
+			// Object.keys() 返回对象中可枚举属性（支持FOR-IN循环）的KEY值
+			console.log(Object.keys(Person.prototype) );			// ["name", "age", "job", "sayHi"]
+			console.log(Object.keys(p2) );					// ["name"]
+			
+			// getOwnPropertyNames 返回对象中所有属性
+			console.log(Object.getOwnPropertyNames(Person));
+			console.log(Object.getOwnPropertyNames(Person.prototype));
+			
+			// 属性描述
+			console.log( Object.getOwnPropertyDescriptor(Person, "name") );
+			
+			// ================================
+			
+			// string 内置函数
+			console.log( Object.getOwnPropertyNames(String.prototype));
+			
+			// string 添加自定义函数
+			String.prototype.toUpperFirst = function () {
+				return this ? this.substring(0,1).toUpperCase() + this.substring(1) : '';
+			}
+			console.log("hello".toUpperFirst());			// Hello
+			
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			Prototype 原型模式
+		</p>
+		
+		<p>
+			我们创建的每个函数都有一个 prototype 属性。
+			这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
+			通俗港，prototype是通过调用构造函数而创建的实例对象。
+		</p>
+		
+		<p>
+			原型的好处：
+			可以让所有对象实例共享它所包含的属性和方法，类似于继承（子类可使用父类的属性和方法）。
+			同时，非常灵活，可以直接在原型上添加属性和方法。
+		</p>
+		
+	</body>
+</html>
