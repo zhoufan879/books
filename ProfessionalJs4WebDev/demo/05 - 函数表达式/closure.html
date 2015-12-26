@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>闭包</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+
+			function demo () {
+				var arr = new Array();
+				
+				for(var i=0; i<10; i++){
+					arr[i] = function () {
+						return i;
+					};
+				}
+				
+				return arr;
+			}
+			
+			console.log( demo()[0]() );			// 10
+			console.log( demo()[9]() );			// 10		因为arr 数组里，储存的全是 function(){return i;} ，而循环后 i=10 | SO...
+			
+			// ==============================
+			
+			// 为了解决上面问题，我们引入【闭包】
+			
+			function demoClosure () {
+				var arr = new Array();
+				
+				for(var i=0; i<10; i++){
+					arr[i] = function (num) {		// 函数参数是按值传递，num 始终会随着 i 的变化而变化
+						return function () {
+							return num;
+						}; 
+					}(i);
+				}
+				
+				return arr;
+			}
+			console.log( demoClosure() );
+			console.log( demoClosure()[0]() );			
+			console.log( demoClosure()[9]() );			
+			
+			
+			// ========================
+			
+		  	// this 在闭包中
+		  	
+		  	var name = "zhoufan879";
+		  	var obj = {
+		  		name : "小明",
+		  		
+		  		getName: function () {
+		  			// var that = this; 		that.name // "小明"， 酱紫，就能获取到【小明】了
+		  			return function () {
+		  				return this.name;
+		  			}
+		  		}
+		  	}
+		  	console.log( obj.getName()() );		// zhoufan879，this.name 在闭包中会自下（局部变量）而上（全局）去找属性
+			
+		</script>
+	</head>
+	<body>
+		<h1>
+			闭包
+		</h1>
+		
+		<p>
+			闭包是一个函数，它有权访问另一个函数作用域中的变量。
+		</p>
+		
+		<h1>
+			作用域
+		</h1>
+		<p>
+			当某个函数被调用时，会创建一个执行环境（execution context）及相应的作用域链。然后，使用arguments 和其他命名参数的值初始化函数的活动对象（activation object）。
+		</p>
+		<p>
+			寻找作用域链过程： 局部Scope --> 第一个外部Scope --> 第二个外部Scope --> 第N个... --> 全局Scope(window/global)
+		</p>
+		<p>
+			由于闭包会携带包含它的函数的作用域，因此会比其他函数占用更多内存。过度使用闭包可能会导致内存占用过多。
+		</p>
+		
+	</body>
+</html>

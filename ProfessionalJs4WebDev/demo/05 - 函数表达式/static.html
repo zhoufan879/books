@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>模仿块级作用域</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+
+			for (var i=0; i<10; i++) {
+			}
+			console.log(i);			// 10
+			
+			// 若想解决，重新声明i（我操，不好使）
+			var i;
+			console.log( i );			// 书上说，应该是 0； 实际上是 10...
+			
+			//  为了解决上述问题，我们引入 块级作用域（又叫 私有作用域）
+			(function () {
+				// 这里就是块级作用域
+			 	// 这里实际是个【函数表达式】
+			 	// 这种写法，可以减少闭包占用的内存问题，因为没有指向任何引用。只要函数执行完，就会立即销毁作用域链
+			 	
+			 	var name = "zhoufan879";
+			 	
+			 	// 只暴露一个对象 Person，挂截在 window 上
+			 	Person = function (name) {
+			 		name = name;
+			 	}
+			 	
+			 	Person.prototype.getName = function () {
+			 		return name;
+			 	}
+			})();
+			
+			console.log(window.Person);
+			
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			JavaScript中没有块级作用域的概念。这意味着在块语句定义的变量，实际上是在外圈函数或全局中定义的一样。
+			比如，最经典的FOR 循环
+		</p>
+		
+		
+	</body>
+</html>
