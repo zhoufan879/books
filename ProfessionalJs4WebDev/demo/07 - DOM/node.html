@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Node</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+
+			window.onload = function () {
+				
+				// 遍历节点
+				
+				var _body = document.body;			// 主节点
+				var childrenOfBody = _body.children;
+				var firstChild = childrenOfBody[0];
+				var lastChild = childrenOfBody[childrenOfBody.length-1];
+				
+				console.log(_body.childNodes);
+				console.log(_body.firstChild);						// text
+				console.log(_body.firstChild.nextSibling);		// h1
+				
+				console.dir(lastChild);									// text
+				
+				// 问题来了，有各种节点（TEXT + NODE）
+				// 所以，我们要判断一哈 Node.ELEMENT_NODE 
+				var n = _body.firstChild;
+				while( n = n.nextSibling ){
+//					if(n && n.nodeType === Node.ELEMENT_NODE ){		// ie8 不支持常量写法
+					if(n && n.nodeType === 1) {
+						console.log(n);
+					}
+				}
+				
+				// 从下往上
+				n = _body.lastChild;
+				while( n = n.previousSibling ){
+					if(n && n.nodeType === 1) {
+						console.log(n);
+					}
+				}
+				
+				// ======================
+				
+				// 插入 - 末端
+				var _h1 = document.createElement("h1");
+				_h1.style.color = 'red';
+				_h1.innerText = "i am newer";
+				_body.appendChild( _h1 );
+				
+				// 插入 - 第一个
+				var _h1_first = _h1.cloneNode(true);
+				_body.insertBefore( _h1_first , _body.firstChild );
+				
+				// 替换 - 第一个
+				var new_h1 = _h1.cloneNode(true);
+				new_h1.innerText = "i am the replaced one";
+				_body.replaceChild( new_h1, _h1_first );
+				
+				// 删除
+				var _timer = setTimeout(function(){
+					clearTimeout(_timer);
+					
+					if( confirm("是否删除第一个DOM节点") ) {
+						_body.removeChild( _body.firstChild );
+					}
+				}, 3000);
+				
+				// 升级版插入操作，见 element.html
+			}
+		</script>
+	</head>
+	<body>
+		<h1>
+			Node 类型
+		</h1>
+		<p>
+			DOM1级定义了一个 Node接口，该接口将由DOM中的所有节点类型实现。即，JS中的所有节点类型都继承自Node。
+			每个接口都有一个 nodeType属性。
+		</p>
+		<p>
+			nodeType列表：
+		</p>
+		
+		<ul>
+			<li>1 - Node.ELEMENT_NODE</li>
+			<li>2 - Node.ATTRIBUTE_NODE</li>
+			<li>3 - Node.TEXT_NODE</li>
+			<li>4 - Node.CDATA_SECTION_NODE</li>
+			<li>5 - Node.ENTITY_REFERENCE_NODE</li>
+			<li>6 - Node.ENTITY_NODE</li>
+			<li>7 - Node.PROCESSING_INSTRACTION_NODE （处理指令 target）</li>
+			<li>8 - Node.COMMENT_NODE （注释）</li>
+			<li>9 - Node.DOCUMENT_NODE</li>
+			<li>10 - Node.DOCUMENT_TYPE_NODE</li>
+			<li>11 - Node.DOCUMENT_FRAMENT_NODE</li>
+			<li>12 - Node.NOTATION_NODE</li>
+		</ul>
+	</body>
+</html>

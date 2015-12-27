@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Element</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+
+			window.onload = function () {
+				
+				var _body = document.body;
+				console.log( _body.childNodes );
+				console.log( _body.children );
+				console.log( _body.childElementCount );
+				
+				console.log( _body.firstChild );													// 包含其它节点 如#text
+				console.log( _body.firstElementChild );										// 仅包含 #element节点
+				console.log( _body.firstChild === _body.firstElementChild );		// true
+				
+				console.log( _body.lastElementChild );
+				console.log( _body.lastElementChild.previousElementSibling );
+				console.log( _body.firstElementChild.nextElementSibling );
+			
+				// css
+				console.log( document.getElementsByClassName("_p1") );		// IE9+    NodeList
+				var _p = document.querySelector("._p1");      // HTMLElement
+				
+				var _p_css = _p.classList;							// DOMTokenList 实例
+				console.log( _p_css );								// ["_p1", "_p2", "_p3"]     IE10+
+				console.log( _p_css.contains("_p1") );		// true
+				_p_css.add("_p4");
+				console.log( _p_css );
+				_p_css.remove("_p4");
+				console.log( _p_css );
+				_p_css.toggle("_p4");         // 有‘_p4’ 则删除，无则添加
+				console.log( _p_css );
+				
+				console.log( _p.dataset.v );						// IE11+
+				console.log( _p.getAttribute("data-v") );
+				
+				// 升级版插入
+				
+				var _div = document.querySelector("#dd");
+				
+				// 插入在元素之前（同级）
+				_div.insertAdjacentHTML("beforebegin", "<p>老炮儿，没看成！</p>");
+				
+				// 插入在元素之内（子级 + 尾部）
+				_div.insertAdjacentHTML("beforeend", "<p>恶棍天使，没看成！</p>");
+				
+				// 插入在元素之内（子级 + 首部）
+				_div.insertAdjacentHTML("afterbegin", "<p>寻龙诀，没看成！</p>");
+				
+				// 插入在元素之后（同步）
+				_div.insertAdjacentHTML("afterend", "<p>唐人街探案，没看成！</p>")
+				
+				// 在使用 innerHTML、outerHTML、insertAdjacentHTML 时，会导致内存占用问题；因为浏览器要重新计算页面元素尺寸、样式等等消耗
+				// 最好，先手动删除节点下的事件和JS对象，再做添加操作
+				
+				
+				// ===============
+				
+				// 滚动条
+				var _lastOne = document.body.lastElementChild;
+				_lastOne.scrollIntoView();		// 滚动条可见
+				
+				_body.scrollByLines(15);		// 没感觉 ...
+			}
+		</script>
+	</head>
+	<body><h1>Element 类型（nodeType - 1）</h1>
+		<p class="_p1 _p2 _p3" data-v="123456"></p>			
+		<div id="dd"><p>111222</p></div>
+	</body>
+</html>

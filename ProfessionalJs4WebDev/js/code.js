@@ -1,4 +1,4 @@
-window.onload = function () {
+var ready = function () {
 	var divCode = document.createElement("div");
 	var _code = document.createElement("code");
 	divCode.style.margin = '10px';
@@ -15,3 +15,7 @@ window.onload = function () {
 	document.body.appendChild(divCode);
 	document.body.appendChild(_p);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+	ready();
+});

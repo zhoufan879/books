@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Document</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" id="js">
+
+			window.onload = function () {
+				
+				console.dir(document);									// #document 整个页面
+				console.log(document.doctype);					// <!DOCTYPE html>
+				console.dir(document.documentElement);	// html
+				console.log( document.charset );
+				console.log( document.doctype.nextSibling === document.documentElement );	// 同级节点
+				
+				console.log( document.head );						// ie9+
+				console.log( document.title );	
+				console.log( document.scripts.length );		// 2
+				console.log( document.getElementsByTagName("meta") );
+				
+				console.log( document.body );
+				
+				console.log( document.URL );
+				
+				console.log( document.domain );					// 域名
+				console.log( document.referrer );					// 来源
+				console.log( document.lastModified );			// 过期时间
+				
+				// =============
+				
+				// 查询
+				console.log( document.all );							// 所有元素
+				console.log( document.anchors );					// 所有不带HREF的 A标签，anchors 与 links 不同
+				console.log( document.forms );						// 所有表单
+				console.log( document.images );					// 所有图片
+				console.log( document.links );						// 所有带HREF的 A标签
+				
+				console.log( document.getElementById("_v") );
+				console.log( document.getElementsByName("_v") );
+				console.log( document.getElementsByTagName("br") );
+				console.log( document.getElementsByClassName(".pp") );			// IE9+
+				
+				// 强大的查询
+				// document.querySelector( CSS selector )  
+				console.log( document.querySelector("#_v") );			// IE8+
+				console.log( document.querySelector("h1") );
+				console.log( document.querySelector("input[name='_v']") );
+				console.log( document.querySelector(".pp") );
+				
+				// 注意： 参数是CSS选择器；用法和CSS一样
+				console.log( document.querySelectorAll("a"));
+				
+				// ============================================
+				
+				// DOM 一致性检测
+				// 然并卵
+				console.log( document.implementation.hasFeature("XML", "V123456.0"));
+			
+				// focus
+				console.log( document.hasFocus() );
+				console.log( document.activeElement );				// 默认是 body
+			}
+		</script>
+	</head>
+	<body>
+		<h1>
+			Document 类型（nodeType - 9）
+		</h1>
+		<p class="pp">
+			JS 是通过Document 表示文档，即基于 HTML/XML的文档。
+			平常JS中用的 window.document 对象是 HTMLDocument的一个实例，而HTMLDocument 是继承自 Document。
+			document 表示整个HTML 页面。
+		</p>
+		<input type="hidden" name="_v" value="123456" id="_v"></input>
+		<a href="#">草泥马</a><br />
+		<a name="first">First anchor</a><br />
+		<a name="second">Second anchor</a><br />
+		<a name="third">Third anchor</a><br />
+		<img src="http://d.3987.com/cmnz_131009/005.jpg" />
+		<br />
+			
+	</body>
+</html>
