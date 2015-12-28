@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>鼠标&&滚轮事件</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+	<body onpageshow="myPageShow()">
+		<h1>
+			鼠标点击事件
+		</h1>
+		<a href="http://baidu.com">百度</a>
+		<script type="text/javascript" id="js">
+
+			var _p = document.createElement("p");
+			var foo = document.createElement("div");
+			foo.style.height = "1000px";
+			var _timer = setTimeout(function () {
+				document.body.appendChild(foo);
+			
+				document.addEventListener("click", function (e) {
+					console.log( e.clientX + ", " + e.clientY);						// 页面可视区
+					console.log( e.pageX + ", " + e.pageY);						// 整个页面区
+					console.log( e.screenX + ", " + e.screenY);					// 屏幕窗口区
+				});
+				
+				clearTimeout(_timer);
+			}, 1000);
+
+			
+			// 前进、后退，缓存页面								貌似没卵用，用法不对？？？
+			var cn = 0;
+			function myPageShow (e) {
+				cn++;
+				console.log("您这儿是第" + cn + "次进入，再来~");
+				console.log( e );
+			}
+//			(function () {
+//				
+//				window.onpageshow = function (e){
+//				};
+//				
+//				window.addEventListener("pagehide", function (){
+//					console.log("您这儿是第" + cn + "次拔出，再来~");
+//				});
+//			})();
+			
+		</script>
+	</body>
+</html>

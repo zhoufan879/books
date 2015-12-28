@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>内存和性能</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+	<body>
+		<h1>
+			内存和性能
+		</h1>
+		<p>
+			在JS中，添加的事件越多，性能将越差。
+			每个函数都是对象，都会占用内存；内存中的对象越多，性能就越差。
+		</p>
+		<h1 style="color: RED;">
+			优化方案： 事件委托
+		</h1>
+		
+		<script type="text/javascript" id="js">
+
+			var _h1 = document.querySelectorAll("h1")[1];
+			
+			var funn = function (e) {
+				console.log(e);
+				
+				// 优化：清除事件
+				_h1.removeEventListener("click", funn);
+			};
+			
+			_h1.addEventListener("click", funn);
+			
+			// 模拟触发CLICK事件
+			var _e = document.createEvent("MouseEvent");
+			_e.initMouseEvent("click", true, true, document.defaultView, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+			
+			setTimeout(function(){
+				_h1.dispatchEvent(_e);			// ie9+
+			}, 1000);
+			
+		</script>
+		
+		<script src="../../js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+			// JQ 的 trigger 
+			// 是通过 element.onclick() 触发的
+//			$("h1:last").trigger("click");
+			
+		</script>
+	</body>
+</html>

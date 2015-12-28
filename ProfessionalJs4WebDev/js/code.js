@@ -16,6 +16,17 @@ var ready = function () {
 	document.body.appendChild(_p);
 }
 
+/**
+ * onload 事件，在页面中一切元素（DOM、图片、JS、CSS...）都加载完毕 才触发
+ * 
+ * DOMContentLoaded 事件，在形成完整DOM树之后触发
+ * 
+ */
 document.addEventListener("DOMContentLoaded", function () {
 	ready();
 });
+
+// 另一个 DOM ready 解决方案
+setTimeout(function () {
+	// ...
+}, 0);
