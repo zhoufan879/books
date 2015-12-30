@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>CORS 跨域</title>
+		<script src="../../js/code.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+	<body>
+		<h1>
+			CORS 跨域
+		</h1>
+		<p>
+		</p>
+		
+		
+		
+		<script type="text/javascript" id="js">
+			
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if(xhr.readyState == 4){
+					if( (xhr.state >= 200 && xhr.state < 300) || xhr.state == 304 ){
+						console.log(xhr.responseText);
+					} else {
+						console.log( "req was fail: " + xhr.status );
+					}
+				}
+			}
+			
+			xhr.open("get", "https://idcwxtest.dafysz.cn/mobile-biz/customers/banks/list", true);
+			xhr.setRequestHeader("Access-Control-Allow-Origin", "https://idcwxtest.dafysz.cn");			// 然并卵
+			xhr.send(null);
+			
+		</script>
+	</body>
+</html>

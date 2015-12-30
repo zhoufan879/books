@@ -22,14 +22,14 @@
 
 			var _h1 = document.querySelectorAll("h1")[1];
 			
-			var funn = function (e) {
+			var _f = function (e) {
 				console.log(e);
 				
 				// 优化：清除事件
-				_h1.removeEventListener("click", funn);
+				_h1.removeEventListener("click", _f);
 			};
 			
-			_h1.addEventListener("click", funn);
+			_h1.addEventListener("click", _f);
 			
 			// 模拟触发CLICK事件
 			var _e = document.createEvent("MouseEvent");
