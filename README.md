@@ -4,7 +4,7 @@
 
 2015年（数据来源于当当、京东）
  * [《JavaScript高级程序设计》](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
- * 《JavaScript设计模式》
+ * [《JavaScript设计模式》](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
  * 《从0到1》
  * 《How google work （重新定义公司：谷歌是如何运营的）》
  * 《小王子》
