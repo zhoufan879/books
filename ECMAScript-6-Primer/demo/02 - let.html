@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script type="text/javascript">
+			// 必须使用严格模式
+			// Block-scoped declarations (let, const, function, class) not yet supported outside strict mode
+			'use strict';
+			
+			// ES6 新添加了 代码块
+			// 通过 let 实现
+			
+			// ES5 
+			{
+				var a = 10;
+			}
+			console.log( a );		// 10
+			
+			// ES6
+			{
+				let b = 20;
+			}
+//			console.log( b );		// error
+			
+			// =========================
+			
+			// ES5
+			for(var i=0; i < 10; i++ ){
+			}
+			console.log( i );			// 10
+			
+			// ES6
+			for(let j=0; j < 10; j++ ){
+			}
+//			console.log( j );			// error
+
+			// =========================
+			
+			// 变量提升 
+			console.log( _up );		// undefined
+			var _up = 123;
+			
+//			console.log( _cannot_up );		//  _cannot_up is not defined
+//			let _cannot_up = 123;		
+			
+			// =========================
+			
+			// 暂时性死区
+			var _tmp = 123;
+			if(true){
+//				console.log( _tmp );				// _tmp is not defined
+				let _tmp = "123";
+				console.log( typeof _tmp );
+			}
+			console.log( typeof _tmp );
+			
+			// =========================
+			
+			// 不允许重复声明 
+			let name = "";
+//			let name; 				//Identifier 'name' has already been declared
+			
+			// =========================
+			
+			// 块级作用域
+			// ES5 - IIFE 立即执行匿名函数
+			(function(){
+				// ...
+			})();
+			
+			// ES6 
+			{
+				// ...
+			}
+			
+			{
+				let c = 1;
+				function doC () {
+					console.log( c );
+				}
+			}
+//			doC();		// doC is not defined
+			
+			// =========================
+			
+			// IF/FOR 不可以包含 函数
+			// 然并卵
+			if(true){
+				'use strict'
+				function doIf() {}
+				doIf();
+			}
+			
+			for(let j=0; j < 2; j++ ){
+				'use strict'
+				function doFor(){}
+				doFor();
+			}
+			
+		</script>
+		
+		<script src="../js/code.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>let命令</h1>
+	</body>
+</html>

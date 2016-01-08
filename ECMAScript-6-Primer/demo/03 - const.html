@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script type="text/javascript">
+			'use strict';
+			
+			const PI = 3.1415;
+//			PI = 3;						// Assignment to constant variable.
+			
+			console.log(PI);
+			
+			// ===============
+			
+			// const 与 let 都属于块级作用域
+			if(true){
+				const _VISIABLE_ = true;
+			}
+//			console.log( _VISIABLE_ );		// _VISIABLE_ is not defined
+
+			// ===============
+			
+			// 复合/引用类型（不能保证数据变化）
+			const obj = {};
+			obj.name = "zhoufan";
+			obj.age = 28;
+			
+			console.log( obj );		// 	Object {name: "zhoufan", age: 28}
+			
+			obj.name = "james";
+			console.log( obj );		// 	Object {name: "zhoufan", age: 28}
+			
+		</script>
+		
+		<script src="../js/code.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>const 常量</h1>
+	</body>
+</html>
