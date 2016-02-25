@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script type="text/javascript">
+			'use strict';
+			
+			// object 扩展
+			
+			// 属性简写
+			var foo = 'bar';
+			var a = {foo};
+			console.log( a );		// Object {foo: 'bar'}
+			
+			// 待同于
+			var a = {foo: 'bar'};
+			console.log( a );		// Object {foo: 'bar'}
+			
+			// 方法简写
+			var obj = {
+				mm() {
+					return 'hello';
+				}
+			};
+			console.log( obj.mm() );				// hello
+			
+			// 等同于
+			var obj = {
+				mm: function(){
+					return 'hello';
+				}
+			};
+			console.log( obj.mm() );				// hello
+			
+			// setter & getter
+			var obj = {
+				_wheels : 5,
+				
+				get wheels() {
+					console.log(this._wheels);
+					return this.wheels;
+				},
+				
+				set wheels(_v) {					
+					console.log(this._wheels, _v);
+					this.wheels = _v;
+				}
+			}
+			
+			console.log( obj );						// Object { _wheels: 5, wheels: Getter }
+			obj._wheels = 1;
+			
+			// -----------------------------
+			
+			// 属性名表达式
+			obj = {};
+			obj.foo = 'bar';
+			obj['foo'] = 'bar';
+			console.log( obj );						// { foo: 'bar' }
+			
+			obj[ 'abc' + 'ef' ] = 'bar';			
+			console.log( obj );						// { foo: 'bar', abcef: 'bar' }
+			
+		</script>
+		
+		<script src="../js/code.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>Object 扩展</h1>
+		<ol>
+		</ol>
+	</body>
+</html>

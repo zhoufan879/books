@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script type="text/javascript">
+			'use strict';
+			
+			// 函数 扩展
+			
+			// 1. 基本用法 
+			// 参数赋值，目前Chrome不支持，FF支持
+			(function sayhi (name = 'hello', words = 'zhoufan879') {
+				console.log(name, words);				// hello, zhoufan879
+			})();
+			
+			(function add (...values) {
+				var sum = 0;
+				
+				for(var v of values){
+					sum += v;
+				}
+				
+				console.log(sum);						// 6
+				return sum;
+			})(1,2,3);											
+			
+			console.log( [1].push(2) );							// 2
+			console.log( [1].push([2,3,4]) );				// 2
+			console.log( [1,2,3].push(...[4,5,6,7]) );			// 7
+			console.log( Array.prototype.push.apply( [1,2,3], [4,5,6,7] ) );		// 7
+			
+			console.log( [1].concat([2,3,4]) );			// [1,2,3,4]
+			console.log( [1].concat([2,3], [4,5,6]) );	// [1,2,3,4,5,6] ES5
+			console.log( [...[1], ...[2,3], ...[4,5,6]]);	// [1,2,3,4,5,6] ES6
+			
+			var [a, ...b] = [1,2,3,4,5];
+			console.log( a );				// 1
+			console.log( b );				// [2,3,4,5]
+			
+			console.log( [1,2,3,4,5] );			// Array
+			console.log( ...[1,2,3,4,5] );		// 1 2 3 4 5
+			console.log( ...'hello' );				// 'h' 'e' 'l' 'l' 'o'
+			
+			// ---------------------------------------------------
+			
+			// 箭头函数  '=>'
+			var f = v => v;		
+			console.log( f(1) );						// 1
+			
+			// 上面代码等同于
+			var f = function (v) {
+				return v;
+			}
+			console.log( f(1) );						// 1
+			
+			console.log( [1,2,3].map(x => x*x));			// [1,4,9]			
+			
+			
+			
+			
+			
+		</script>
+		
+		<script src="../js/code.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>函数扩展</h1>
+		<ol>
+		</ol>
+	</body>
+</html>
