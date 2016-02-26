@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script type="text/javascript">
+			'use strict';
+			
+			// Symbol 扩展
+			// Symbol 表示独一无二的值，JS语法中的第七种数据类型 （undefined/null/boolean/string/number/object）
+			
+			var s1 = Symbol();
+			var s2 = Symbol();
+			
+			console.log( typeof s1 );			// symbol
+			console.log( s1 == s2 );				// false
+			console.log( s1 === s2 );			// false
+			
+			var _name = Symbol('zhoufan879');
+			console.log( _name  );
+			console.log( _name.toString()  );
+			
+		</script>
+		
+		<script src="../js/code.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>Symbol 扩展</h1>
+		<ol>
+			<li>作为属性名的Symbol</li>
+			<li>消除魔术字符串</li>
+			<li>属性名的遍历</li>
+			<li>Symbol.for() && Symbol.keyFor()</li>
+			<li>内置Symbol值</li>
+		</ol>
+	</body>
+</html>

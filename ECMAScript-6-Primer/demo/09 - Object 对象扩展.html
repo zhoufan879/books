@@ -40,17 +40,21 @@
 				
 				get wheels() {
 					console.log(this._wheels);
-					return this.wheels;
+					return this._wheels;
 				},
 				
 				set wheels(_v) {					
 					console.log(this._wheels, _v);
 					this.wheels = _v;
-				}
+				},
+				
+				hi() {}
 			}
 			
+			console.log( obj.wheels.name );			// undefined
+			console.log( obj.hi.name );					// hi
 			console.log( obj );						// Object { _wheels: 5, wheels: Getter }
-			obj._wheels = 1;
+//			obj._wheels = 1;
 			
 			// -----------------------------
 			
@@ -62,6 +66,39 @@
 			
 			obj[ 'abc' + 'ef' ] = 'bar';			
 			console.log( obj );						// { foo: 'bar', abcef: 'bar' }
+			
+			console.log( 2*1024*0.34+1*1024*0.32 );		// 1024
+			
+			// -----------------------------
+			
+			console.log( (new Function()).name );				// anonymous
+			console.log( (function () {}).bind().name );		// ''
+			
+			// Object.is()
+			console.log( -0 == +0 );					// true
+			console.log( -0 === +0 );					// true
+			console.log( NaN == NaN );				// false
+			console.log( NaN === NaN );			// false
+			
+			console.log( Object.is(-0, +0) );				// false
+			console.log( Object.is(NaN, NaN) );			// true
+			
+			// Object.assign()   属性拷贝
+			var a = {a:1};
+			Object.assign(a, {b:2}, {c:3});				
+			console.log( a );											// Object { a: 1, b: 2, c: 3 }
+			
+			var arr = [1,2];
+			Object.assign(arr, [3,4], [5]);					// 转成 Object 再计算
+			console.log( arr );										// Array [ 5, 4 ]
+			
+			var clone = function (_obj) {
+				return Object.assign({}, _obj);
+			}
+			var obj_clone = clone(obj);
+			
+			console.log( obj_clone );							// Object { foo: "bar", abcef: "bar" }
+			console.log( obj === obj_clone );				// false
 			
 		</script>
 		
