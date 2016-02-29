@@ -48,6 +48,7 @@
 			var g = (function* foo(x){
 				var y = 2 * (yield (x+1));
 				var z = yield (y/3);
+				console.log(x,y,z);
 				return (x+y+z);
 			})(5);
 //			console.log( g.next() );								// Object { value: 6, done: false }
@@ -56,6 +57,34 @@
 
 			console.log( g.next(2) );
 			console.log( g.next(6) );
+			console.log( g.next(1) );							// 5 + 12 + 1
+			console.log("------------");
+			
+			//
+			function* gen () {
+				yield 1;
+				yield 2;
+				yield 3;
+			}
+			var g = gen();
+			
+			console.log( g.next() );								// Object { value: 1, done: false }
+			console.log( g.return('abc') );					// Object { value: 'abc', done: false }
+			console.log( g.next() );								// Object { value: undefined, done: false }
+			console.log( g.next() );								// Object { value: undefined, done: false }
+			
+			
+			// Load
+			var loader = (function*(){
+				console.log('show loader');
+				yield 1;
+				console.log('hide loader');
+			})();
+			loader.next();
+			setTimeout(function () {
+				loader.next();
+			}, 1500);
+			
 			
 		</script>
 		
