@@ -4,6 +4,7 @@
 
 2015年（数据来源于当当、京东）
  * [《JavaScript高级程序设计》](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
+ * [《ECMAScript 6入门》（在读）](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
  * 《JavaScript设计模式》
  * 《从0到1》
  * 《How google work （重新定义公司：谷歌是如何运营的）》
@@ -11,13 +12,12 @@
  * 《成功人士的七种习惯》
  * 《八十年风雨人生（郎咸平的父亲）》
  * 《深入理解Java虚拟机：JVM高级特性与最佳实践（第2版）》
+ * 《Nginx高性能Web服务器详解》
  * 《实战Java虚拟机——JVM故障诊断与性能优化》
  * 《大型网站技术架构：核心原理与案例分析》
  * 《大型网站系统与Java中间件实践》
- * [《ECMAScript 6入门》（在读）](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
- * 《Http权威指南》（在读）
+ * 《Http权威指南》
  * 《深入浅出nodejs》（未）
- * 《Nginx高性能Web服务器详解》（未）
  * 《JavaScript权威指南》（未）
 
 2014年（数据来源于当当、亚马逊）
