@@ -4,7 +4,7 @@
 
 2015年（数据来源于当当、京东）
  * [《JavaScript高级程序设计》](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
- * [《ECMAScript 6入门》（在读）](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
+ * [《ECMAScript 6入门》](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
  * 《JavaScript设计模式》
  * 《从0到1》
  * 《How google work （重新定义公司：谷歌是如何运营的）》
@@ -18,7 +18,17 @@
  * 《大型网站系统与Java中间件实践》
  * 《Http权威指南》
  * 《深入浅出nodejs》
+ * 《Redis设计与实现》
+ * 《Spring源码深度解析》
+ * 《“笨办法”学Python(第3版)》（在读）
+ * 《晚安，宝贝：睡前10分钟胎教故事》（在读）
+ * 《你就是孩子最好的玩具》（在读）
+ * 《UNIX编程艺术》	（难，看不懂）
+ * 《TCP/IP 详解(卷1:协议)》		（未）
+ * 《UNIX网络编程 卷1 套接字联网API（第3版）》	（未）
+ * 《UNIX网络编程 卷2 进程间通信（第2版）》	（未）
  * 《JavaScript权威指南》（未）
+ * 《提问的艺术》 （未）
 
 2014年（数据来源于当当、亚马逊）
  * 《REWORK》
