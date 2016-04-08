@@ -6,6 +6,7 @@
  * [《JavaScript高级程序设计》](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
  * [《ECMAScript 6入门》](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
  * 《JavaScript设计模式》
+ * 《构建高性能Web站点》
  * 《从0到1》
  * 《How google work （重新定义公司：谷歌是如何运营的）》
  * 《小王子》
