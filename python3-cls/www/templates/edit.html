@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>编辑博客</title>
+	<style>
+		form {
+			margin: 20px;
+		}
+		.title {
+			margin: 10px 0;
+			height: 30px;
+			line-height: 30px;
+			font-size: 14px;
+		}
+		input[type='submit'] {
+			margin: 10px 0;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<h1>编辑博客</h1>
+
+	<form action="/edit_submit" method="post">
+		<input type="hidden" name="id" value="{{article.id}}">
+		<div>
+			<input class="title" type="text" name="title" value="{{article.title}}" /> 
+		</div>
+		<textarea name="content" id="" cols="70" rows="10">{{article.content}}</textarea>
+		
+		<div><input type="submit"></div>
+
+	</form>
+</body>
+</html>

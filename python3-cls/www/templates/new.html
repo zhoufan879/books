@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>新建博客</title>
+	<style>
+		form {
+			margin: 20px;
+		}
+		.title {
+			margin: 10px 0;
+			height: 30px;
+			line-height: 30px;
+			font-size: 14px;
+		}
+		input[type='submit'] {
+			margin: 10px 0;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<h1>新建博客</h1>
+	<form action="/submit" method="post">
+		<div>
+			<input class="title" type="text" name="title" placeholder="请输入文章标题" /> 
+		</div>
+		<textarea name="content" id="" cols="70" rows="10" placeholder="请输入文章内容"></textarea>
+		
+		<div><input type="submit"></div>
+
+	</form>
+</body>
+</html>

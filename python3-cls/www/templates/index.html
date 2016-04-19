@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+</head>
+<body>
+	<h1>博客列表</h1>
+
+	<ul>
+		{% for item in list %}
+		  <li><a href="/view/{{ item.id }}">{{ item.title }}</a></li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
