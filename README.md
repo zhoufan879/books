@@ -1,21 +1,30 @@
-学习笔记，一些平常看过的书籍 或写过的DEMO 代码
+# 学习笔记
+
+> 一些平常看过的书籍 或写过的代码， 时常用印象笔记，不常更新这里了
+
 
 ---
 
 2016年（数据来源于当当、京东）
- * 《构建高性能Web站点》
- * 《Redis设计与实现》
+ * 《射雕英雄传》 （在读）
+ * 《哈佛商学院最受欢迎的领导课》 （在读）
  * [《“笨办法”学Python(第3版)》](https://github.com/zhoufan879/books/tree/master/python3-cls)
- * [《Redis in action》](https://github.com/zhoufan879/books/tree/master/redis-in-action)    （在读）
- * 《晚安，宝贝：睡前10分钟胎教故事》（在读）
- * 《你就是孩子最好的玩具》（在读）
- * 《提问的艺术》 （在读）
+ * [《Redis in action》](https://github.com/zhoufan879/books/tree/master/redis-in-action)    
+ * 《构建高性能Web站点》
+ * 《大型网站性能监测、分析与优化》
+ * 《褚时健传》
+ * 《精进》
+ * 《Redis设计与实现》
+ * 《晚安，宝贝：睡前10分钟胎教故事》
+ * 《你就是孩子最好的玩具》
+ * 《好妈妈胜过好老师》（经典，受用一生）
+ * 《提问的艺术》 
+ * 《JavaScript权威指南》
+ * 《Spring源码深度解析》
  * 《UNIX编程艺术》	（难，看不懂）
- * 《TCP/IP 详解(卷1:协议)》		（未）
- * 《UNIX网络编程 卷1 套接字联网API（第3版）》	（未）
- * 《UNIX网络编程 卷2 进程间通信（第2版）》	（未）
- * 《JavaScript权威指南》（未）
- * 《Spring源码深度解析》	（未）
+ * 《TCP/IP 详解(卷1:协议)》		（难）
+ * 《UNIX网络编程 卷1 套接字联网API（第3版）》	（难）
+ * 《UNIX网络编程 卷2 进程间通信（第2版）》	（难）
  
 2015年（数据来源于当当、京东）
  * [《JavaScript高级程序设计》](https://github.com/zhoufan879/books/tree/master/ProfessionalJs4WebDev)
