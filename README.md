@@ -5,9 +5,15 @@
 
 ---
 
-2016年（数据来源于当当、京东）
- * 《射雕英雄传》 （在读）
- * 《哈佛商学院最受欢迎的领导课》 （在读）
+2016年（数据来源于当当、京东、微信读书）
+ * [《国富论》](https://www.amazon.cn/%E5%9B%BD%E5%AF%8C%E8%AE%BA-%E4%BA%9A%E5%BD%93%C2%B7%E6%96%AF%E5%AF%86/dp/B01LZZF4VC/ref=sr_1_1?ie=UTF8&qid=1479650919&sr=8-1&keywords=%E5%9B%BD%E5%AF%8C%E8%AE%BA+%E5%90%B4%E6%99%93%E6%B3%A2) 	（未读）
+ * 《情商》 （未读）
+ * 《腾讯是怎么长大的》
+ * 《人类简史：从动物到上帝》
+ * 《人性弱点》
+ * 《鹿鼎记（五卷）》
+ * 《射雕英雄传（四卷）》 
+ * 《哈佛商学院最受欢迎的领导课》 
  * [《“笨办法”学Python(第3版)》](https://github.com/zhoufan879/books/tree/master/python3-cls)
  * [《Redis in action》](https://github.com/zhoufan879/books/tree/master/redis-in-action)    
  * 《构建高性能Web站点》
